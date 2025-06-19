@@ -1,0 +1,51 @@
+@import "../../../styles/variables";
+
+.weather-block {
+  width: 100vw;
+  background-color: var(--weather-bg, white);
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  .middle {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 60px;
+    padding: 15px 0;
+
+    .info {
+      width: 200px;
+      font-family: "Urbanist", sans-serif;
+      .topInfo {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        .title {
+          color: var(--weather-title-color, black);
+          letter-spacing: 3px;
+          font-weight: bold;
+          font-size: 18px;
+          margin-bottom: 0px;
+          text-transform: uppercase;
+        }
+        .temp {
+          margin: 0px;
+          letter-spacing: 1px;
+          font-size: xx-large;
+        }
+      }
+      .extraInfo {
+        padding-top: 15px;
+        .weather {
+          padding-bottom: 7px;
+          font-weight: normal;
+          &::first-letter {
+            text-transform: capitalize;
+          }
+        }
+      }
+    }
+  }
+}

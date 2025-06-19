@@ -1,0 +1,6 @@
+@import "../../../styles/variables";
+
+app-weather-block {
+  --weather-bg: #{$brown};
+  --weather-title-color: #937e81;
+}

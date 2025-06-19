@@ -1,25 +1,37 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { LocationService } from './services/location.service';
+import { HeaderComponent } from './components/header/header.component';
+import { MorningWeatherComponent } from './components/morning-weather/morning-weather.component';
+import { DayWeatherComponent } from './components/day-weather/day-weather.component';
+import { EveningWeatherComponent } from './components/evening-weather/evening-weather.component';
+import { NightWeatherComponent } from "./components/night-weather/night-weather.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  // imports: [RouterOutlet, HeaderComponent, MorningWeatherComponent],
+  imports: [HeaderComponent, MorningWeatherComponent, DayWeatherComponent, EveningWeatherComponent, NightWeatherComponent, NightWeatherComponent],
+  standalone: true,
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'weatherPredictor';
+  activeSection = 'morning';
   constructor(private locationService: LocationService) {}
 
   ngOnInit(): void {
     this.locationService.getLocation().subscribe({
-      next: (position) => {
-        console.log('Latitude:', position.coords.latitude);
-        console.log('Longitude:', position.coords.longitude);
+      next: (location) => {
+        if ('coords' in location) {
+          console.log('Latitude:', location.coords.latitude);
+          console.log('Longitude:', location.coords.longitude);
+        } else {
+          console.log('IP-based location:', location.city, location.region, location.country);
+        }
       },
       error: (err) => {
-        console.error('Geolocation error:', err);
+        console.error(err);
       }
     });
   }

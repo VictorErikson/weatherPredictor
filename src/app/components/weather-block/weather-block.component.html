@@ -1,0 +1,19 @@
+<div class="weather-block section" [class.expanded]="expanded" [class.collapsed]="!expanded">
+    <div class="middle">
+        <section class="img-part">
+            <!-- <img [src]="icon" alt="weather icon"> -->
+             <app-cloud-icon/>
+        </section>
+        <section class="info">
+            <div class="topInfo">
+                <h2 class="title">{{ title }}</h2>
+                <p class="temp">{{ temp }}°</p>
+            </div>
+            <div class="extraInfo" *ngIf="expanded">
+                <h2 class="weather">{{ weather }}</h2>
+                <p class="humidity">Luftfuktighet: {{ humidity }}%</p>
+                <p class="airPressure">Lufttryck: {{ airPressure }} hPa</p>
+            </div>
+        </section>
+    </div>
+</div>

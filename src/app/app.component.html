@@ -1,4 +1,45 @@
 
-
-
-<router-outlet />
+<app-header/>
+<main>
+  <!-- <router-outlet /> -->
+  <app-morning-weather
+  [icon]="'assets/icons/cloud.svg'"
+  [title]="'morgon'"
+  [temp]="0"
+  [weather]="'mestadels molnigt'"
+  [humidity]="80"
+  [airPressure]="6"
+  [expanded]="activeSection === 'morning'"
+  (clicked)="activeSection = $event">
+</app-morning-weather>
+<app-day-weather
+  [icon]="'assets/icons/cloud.svg'"
+  [title]="'dag'"
+  [temp]="-7"
+  [weather]="'Regn'"
+  [humidity]="17"
+  [airPressure]="16"
+  [expanded]="activeSection === 'day'"
+  (clicked)="activeSection = $event">
+  </app-day-weather>
+  <app-evening-weather
+  [icon]="'assets/icons/cloud.svg'"
+  [title]="'kväll'"
+  [temp]="-7"
+  [weather]="'Regn'"
+  [humidity]="17"
+  [airPressure]="16"
+  [expanded]="activeSection === 'evening'"
+  (clicked)="activeSection = $event">
+  </app-evening-weather>
+  <app-night-weather
+  [icon]="'assets/icons/cloud.svg'"
+  [title]="'natt'"
+  [temp]="-7"
+  [weather]="'Regn'"
+  [humidity]="17"
+  [airPressure]="16"
+  [expanded]="activeSection === 'morning'"
+  (clicked)="activeSection = $event">
+  </app-night-weather>
+</main>
